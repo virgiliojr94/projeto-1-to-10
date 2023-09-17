@@ -1,0 +1,24 @@
+# Especificar a versão do docker-compose
+version: '3'
+
+# Definir os serviços (contêineres) da aplicação
+services:
+  # Serviço da aplicação FastAPI
+  web:
+    # Construir a imagem a partir do Dockerfile
+    build: .
+    # Mapear a porta 8000 do contêiner para a porta 8000 da máquina local
+    ports:
+      - "8000:8000"
+    # Definir as variáveis de ambiente do contêiner
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    # Definir a dependência do serviço redis
+    depends_on:
+      - redis
+
+  # Serviço do banco de dados Redis
+  redis:
+    # Usar a imagem oficial do Redis
+    image: redis
