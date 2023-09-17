@@ -44,7 +44,7 @@ jobs:
         with:
           context: .
           push: true
-         # tags: virgiliojr/projeto-1-to-10:latest     
+          tags: virgiliojr/projeto-1-to-10:latest     
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
